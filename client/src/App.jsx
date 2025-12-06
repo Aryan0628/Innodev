@@ -2,7 +2,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar.jsx";
-import HeroSection from "./components/HeroSection.jsx";
+import LandingPage from "./pages/Landing";
 import Dashboard from "./pages/dashbaord.jsx";
 
 function App() {
@@ -16,14 +16,18 @@ function App() {
   }, [isAuthenticated, isLoading, navigate]);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<HeroSection />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route
+        path="/dashboard"
+        element={
+          <div className="min-h-screen bg-black text-white">
+            <Navbar />
+            <Dashboard />
+          </div>
+        }
+      />
+    </Routes>
   );
 }
 

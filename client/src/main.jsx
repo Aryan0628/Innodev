@@ -2,9 +2,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
+import "./globals.css";
 import App from "./App";
 import { Auth0Provider } from "@auth0/auth0-react";
-import { BrowserRouter } from "react-router-dom";   // 👈 add this
+import { BrowserRouter } from "react-router-dom"; // 👈 add this
 
 console.log("Auth0 domain =>", import.meta.env.VITE_INNODEV_AUTH0_DOMAIN);
 console.log("Auth0 audience =>", import.meta.env.VITE_INNODEV_AUTH0_AUDIENCE);
@@ -19,7 +20,9 @@ createRoot(document.getElementById("root")).render(
         audience: import.meta.env.VITE_INNODEV_AUTH0_AUDIENCE,
       }}
     >
-      <BrowserRouter>          {/* 👈 wrap App here */}
+      <BrowserRouter>
+        {" "}
+        {/* 👈 wrap App here */}
         <App />
       </BrowserRouter>
     </Auth0Provider>
