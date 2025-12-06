@@ -4,12 +4,40 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
+// CORS configuration - more permissive for development
 const corsOptions = {
-  origin: "http://localhost:5173",        // your Vite frontend
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // In development, allow localhost on any port
+    if (process.env.NODE_ENV !== "production") {
+      if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
+        return callback(null, true);
+      }
+    }
+    
+    // Allow configured client URL
+    const allowedOrigins = [
+      process.env.CLIENT_URL || "http://localhost:5173",
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "http://localhost:8080",
+      "http://127.0.0.1:5173",
+    ];
+    
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-app.use(cors(corsOptions));              // ✅ this is enough for most cases
+app.use(cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json());
@@ -20,7 +48,34 @@ app.use((req, res, next) => {
   next();
 });
 
+// Health check endpoint
+app.get("/health", (req, res) => {
+  res.json({ status: "ok", message: "Server is running" });
+});
+
+// Test endpoint
+app.get("/api/test", (req, res) => {
+  res.json({ message: "API is working", timestamp: new Date().toISOString() });
+});
+
 import userRouter from "./src/routes/user.router.js";
 app.use("/api/users", userRouter);
+
+import heatmapRouter from "./src/routes/heatmap.route.js";
+app.use("/api/heatmap", heatmapRouter);
+
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error("❌ Error:", err);
+  res.status(err.status || 500).json({
+    message: err.message || "Internal server error",
+    error: process.env.NODE_ENV === "development" ? err.stack : undefined,
+  });
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found", path: req.path });
+});
 
 export { app };

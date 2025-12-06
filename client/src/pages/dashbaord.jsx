@@ -1,19 +1,20 @@
 // pages/dashbaord.jsx
 import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import HeatmapSimulator from "../components/HeatmapSimulator";
 
-const API_BASE_URL = "http://localhost:8000"; 
+const API_BASE_URL = "http://localhost:8000";
 
 function Dashboard() {
   const navigate = useNavigate();
 
-  const {
-    isAuthenticated,
-    isLoading,
-    getAccessTokenSilently,
-    logout,
-  } = useAuth0();
+  const { isAuthenticated, isLoading, getAccessTokenSilently, logout } =
+    useAuth0();
+
+  const [heatmapPayload, setHeatmapPayload] = useState(null);
+  const [geojsonData, setGeojsonData] = useState(null);
+  const [loadingData, setLoadingData] = useState(false);
 
   // Redirect to landing page if not authenticated
   useEffect(() => {
@@ -33,7 +34,6 @@ function Dashboard() {
             audience: import.meta.env.VITE_INNODEV_AUTH0_AUDIENCE,
           },
         });
-        console.log("Obtained access token:", token);
 
         await fetch(`${API_BASE_URL}/api/users/me`, {
           method: "GET",
@@ -41,7 +41,6 @@ function Dashboard() {
             Authorization: `Bearer ${token}`,
           },
         });
-
       } catch (err) {
         console.error("User sync failed:", err);
       }
@@ -50,34 +49,80 @@ function Dashboard() {
     syncUser();
   }, [isAuthenticated, getAccessTokenSilently]);
 
-  // Loading state while Auth0 checks session
+  // Load data only when authenticated
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    setLoadingData(true);
+
+    const loadData = async () => {
+      try {
+        // Load GeoJSON
+        const module = await import("../data/indiaStatesGeoJSON");
+        setGeojsonData(module.INDIA_STATES_GEOJSON);
+
+        // Fetch heatmap data
+        const token = await getAccessTokenSilently({
+          authorizationParams: {
+            audience: import.meta.env.VITE_INNODEV_AUTH0_AUDIENCE,
+          },
+        });
+
+        const response = await fetch(`${API_BASE_URL}/api/heatmap/data`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setHeatmapPayload(data);
+        } else {
+          console.error("Failed to fetch heatmap data");
+        }
+      } catch (err) {
+        console.error("Failed to load data:", err);
+      } finally {
+        setLoadingData(false);
+      }
+    };
+
+    loadData();
+  }, [isAuthenticated, getAccessTokenSilently]);
+
+  // Auth0 is checking session
   if (isLoading) {
-    return <div className="p-6 text-center">Loading...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        <div className="text-xl">Checking authentication...</div>
+      </div>
+    );
   }
 
-  // Not authenticated → already redirected
+  // Not authenticated → redirect to home
   if (!isAuthenticated) {
     return null;
   }
 
-  // Authenticated view
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black text-white space-y-6">
-      <h1 className="text-4xl font-bold tracking-wide">
-        Welcome to the website
-      </h1>
+  // Authenticated but loading data
+  if (loadingData || !geojsonData || !heatmapPayload) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        <div className="text-xl">Loading dashboard...</div>
+      </div>
+    );
+  }
 
-      {/* Logout button */}
-      <button
-        onClick={() =>
-          logout({
-            logoutParams: { returnTo: window.location.origin },
-          })
-        }
-        className="px-6 py-2 bg-red-500 text-white font-semibold rounded-md hover:bg-red-600 transition-colors"
-      >
-        Log Out
-      </button>
+  // Authenticated and data loaded
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {heatmapPayload && geojsonData ? (
+        <HeatmapSimulator payload={heatmapPayload} geojson={geojsonData} />
+      ) : (
+        <div className="min-h-screen flex items-center justify-center">
+          <div className="text-xl">Loading heatmap data...</div>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,7 +1,12 @@
 import LoginButton from "./LoginButton";
 import { Earth } from "lucide-react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const { isAuthenticated, logout } = useAuth0();
+  const navigate = useNavigate();
+
   return (
     <header className="w-full flex justify-center pt-4 px-4">
       <nav
@@ -26,9 +31,20 @@ const Navbar = () => {
           </span>
         </div>
 
-        {/* Right: Login */}
+        {/* Right: Login/Logout */}
         <div className="flex items-center gap-3">
-          <LoginButton />
+          {isAuthenticated ? (
+            <button
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
+              className="px-5 py-3 rounded-full text-sm font-medium text-white/85 border border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:text-white shadow-[0_0_8px_rgba(255,255,255,0.04)]"
+            >
+              Log Out
+            </button>
+          ) : (
+            <LoginButton />
+          )}
         </div>
       </nav>
     </header>

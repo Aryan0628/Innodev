@@ -1,12 +1,18 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 const LoginButton = () => {
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const navigate = useNavigate();
+
+  if (isAuthenticated) {
+    return null;
+  }
 
   const handleLogin = () => {
     loginWithRedirect({
-      authorizationParams: {
-        redirect_uri: `${window.location.origin}/dashboard`,
+      appState: {
+        returnTo: "/dashboard",
       },
     });
   };
@@ -24,7 +30,6 @@ const LoginButton = () => {
         bg-white/5
         backdrop-blur-md
         hover:bg-white/10 hover:text-white
-        transition-all duration-200
         shadow-[0_0_8px_rgba(255,255,255,0.04)]
       "
     >

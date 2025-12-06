@@ -30,6 +30,29 @@ const HeroSection = () => {
           Simulate policies, watch virtual citizens react, and uncover hidden
           consequences before your choices ever reach the real world.
         </p>
+
+        {/* Test Dashboard Link */}
+        <div className="mt-8">
+          <a
+            href="/test-dashboard"
+            className="
+              inline-block
+              px-6 py-3
+              rounded-full
+              text-sm
+              font-medium
+              text-white/90
+              border border-white/20
+              bg-white/10
+              backdrop-blur-md
+              hover:bg-white/20 hover:text-white
+              shadow-[0_0_8px_rgba(255,255,255,0.1)]
+              transition-all
+            "
+          >
+            🗺️ View Test Dashboard (No Login Required)
+          </a>
+        </div>
       </div>
     </section>
   );
