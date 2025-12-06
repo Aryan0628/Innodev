@@ -7,9 +7,6 @@ const LoginButton = () => {
     loginWithRedirect({
       authorizationParams: {
         redirect_uri: `${window.location.origin}/dashboard`,
-        // audience is optional here if already in Auth0Provider, 
-        // but being explicit is okay:
-        // audience: import.meta.env.VITE_INNODEV_AUTH0_AUDIENCE,
       },
     });
   };
@@ -17,7 +14,19 @@ const LoginButton = () => {
   return (
     <button
       onClick={handleLogin}
-      className="px-4 py-2 border border-white bg-white text-black font-semibold text-sm rounded-md hover:bg-black hover:text-white transition-colors duration-200"
+      className="
+        px-5 py-3
+        rounded-full
+        text-sm
+        font-medium
+        text-white/85
+        border border-white/15
+        bg-white/5
+        backdrop-blur-md
+        hover:bg-white/10 hover:text-white
+        transition-all duration-200
+        shadow-[0_0_8px_rgba(255,255,255,0.04)]
+      "
     >
       Log In
     </button>
