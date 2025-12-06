@@ -9,7 +9,7 @@ const API_BASE_URL = "http://localhost:8000";
 function Dashboard() {
   const navigate = useNavigate();
 
-  const { isAuthenticated, isLoading, getAccessTokenSilently, logout } =
+  const { isAuthenticated, isLoading, getAccessTokenSilently} =
     useAuth0();
 
   const [heatmapPayload, setHeatmapPayload] = useState(null);
@@ -34,6 +34,7 @@ function Dashboard() {
             audience: import.meta.env.VITE_INNODEV_AUTH0_AUDIENCE,
           },
         });
+        console.log("Syncing user with token:", token);
 
         await fetch(`${API_BASE_URL}/api/users/me`, {
           method: "GET",
@@ -60,6 +61,7 @@ function Dashboard() {
         // Load GeoJSON
         const module = await import("../data/indiaStatesGeoJSON");
         setGeojsonData(module.INDIA_STATES_GEOJSON);
+        console.log("Loaded GeoJSON data",module.INDIA_STATES_GEOJSON);
 
         // Fetch heatmap data
         const token = await getAccessTokenSilently({
@@ -68,11 +70,13 @@ function Dashboard() {
           },
         });
 
+        console.log("Using token:", token);
         const response = await fetch(`${API_BASE_URL}/api/heatmap/data`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log("Heatmap data response:", response);
 
         if (response.ok) {
           const data = await response.json();
