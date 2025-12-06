@@ -1,7 +1,7 @@
-"use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
+import { Card, CardContent } from "../../components/ui/card";
+import { Button } from "../../components/ui/button";
 import { FileText, Download, Eye, Calendar } from "lucide-react";
 
 const reports = [

@@ -1,7 +1,4 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   Map,
@@ -24,12 +21,11 @@ const navItems = [
 ];
 
 function DashboardSidebar() {
-  const pathname = usePathname();
+  const { pathname } = useLocation();
 
   return (
     <aside className="flex w-64 flex-col border-r border-sidebar-border bg-sidebar">
       <div className="flex h-16 items-center gap-2 border-b border-sidebar-border px-6">
-        {/* Custom CIVORA logo */}
         <div className="flex h-8 w-8 items-center justify-center rounded-full border border-sidebar-border">
           <svg
             viewBox="0 0 24 24"
@@ -51,11 +47,12 @@ function DashboardSidebar() {
       <nav className="flex-1 p-4">
         <ul className="space-y-1">
           {navItems.map((item) => {
+            // Check for exact match or sub-route
             const isActive = pathname === item.href;
             return (
               <li key={item.label}>
                 <Link
-                  href={item.href}
+                  to={item.href}
                   className={cn(
                     "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
                     isActive
@@ -74,7 +71,7 @@ function DashboardSidebar() {
 
       <div className="border-t border-sidebar-border p-4">
         <Link
-          href="/"
+          to="/"
           className="text-xs text-sidebar-foreground/50 hover:text-sidebar-foreground"
         >
           Back to Home

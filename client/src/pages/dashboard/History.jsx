@@ -1,6 +1,5 @@
-"use client";
 
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "../../components/ui/card";
 import { Clock, PlayCircle, CheckCircle, XCircle } from "lucide-react";
 
 const historyData = [

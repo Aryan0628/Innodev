@@ -1,10 +1,10 @@
-import IndiaMap from "@/components/dashboard/india-map";
-import MetricsCards from "@/components/dashboard/metrics-cards";
-import PolicySelector from "@/components/dashboard/policy-selector";
-import DemographicBreakdown from "@/components/dashboard/demographic-breakdown";
-import OpinionTimeline from "@/components/dashboard/opinion-timeline";
+import IndiaMap from "../../components/dashboard/IndiaMap.jsx";
+import MetricsCards from "../../components/dashboard/MetricsCards.jsx";
+import PolicySelector from "../../components/dashboard/PolicySelector.jsx";
+import DemographicBreakdown from "../../components/dashboard/DemographicBreakdown.jsx";
+import OpinionTimeline from "../../components/dashboard/OpinionTimeline.jsx";
 
-function DashboardPage() {
+function DashboardHome() {
   return (
     <>
       <div className="mb-6">
@@ -30,4 +30,4 @@ function DashboardPage() {
   );
 }
 
-export default DashboardPage;
+export default DashboardHome;

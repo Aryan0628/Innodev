@@ -1,7 +1,7 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card.jsx";
+import { Progress } from "../../components/ui/progress.jsx";
 
 const demographics = [
   { category: "Urban Population", support: 72, opposition: 28 },

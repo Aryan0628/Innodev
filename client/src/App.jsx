@@ -1,9 +1,18 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar.jsx";
 import LandingPage from "./pages/Landing";
-import Dashboard from "./pages/dashbaord.jsx";
+
+// Dashboard Components
+import DashboardLayout from "./pages/dashboard/DashboardLayout";
+import DashboardHome from "./pages/dashboard/DashboardHome";
+import Analytics from "./pages/dashboard/Analytics";
+import History from "./pages/dashboard/History";
+import MapView from "./pages/dashboard/MapView";
+import Population from "./pages/dashboard/Population";
+import Reports from "./pages/dashboard/Reports";
+import Settings from "./pages/dashboard/Settings";
 
 function App() {
   const { isAuthenticated, isLoading, error, user } = useAuth0();
@@ -17,17 +26,12 @@ function App() {
 
   useEffect(() => {
     if (!isLoading && isAuthenticated && user) {
-      console.log("✅ User authenticated:", user);
-      // Check if we're coming from Auth0 redirect (has code in URL)
       const urlParams = new URLSearchParams(window.location.search);
       const hasAuthCode = urlParams.has("code");
       const hasState = urlParams.has("state");
       
-      // Navigate to dashboard if authenticated
       if (window.location.pathname === "/" || window.location.pathname === "" || hasAuthCode || hasState) {
-        // Clean up URL parameters after Auth0 redirect
         if (hasAuthCode || hasState) {
-          // Use setTimeout to ensure Auth0 SDK has finished processing
           setTimeout(() => {
             window.history.replaceState({}, document.title, "/dashboard");
             navigate("/dashboard", { replace: true });
@@ -64,14 +68,13 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      
+      {/* Dashboard Routes */}
       <Route
         path="/dashboard"
         element={
           isAuthenticated ? (
-            <div className="min-h-screen bg-black text-white">
-              <Navbar />
-              <Dashboard />
-            </div>
+            <DashboardLayout />
           ) : (
             <div className="flex min-h-screen items-center justify-center bg-black text-white">
               <div className="text-center">
@@ -80,7 +83,18 @@ function App() {
             </div>
           )
         }
-      />
+      >
+        <Route index element={<DashboardHome />} />
+        <Route path="analytics" element={<Analytics />} />
+        <Route path="history" element={<History />} />
+        <Route path="map" element={<MapView />} />
+        <Route path="population" element={<Population />} />
+        <Route path="reports" element={<Reports />} />
+        <Route path="settings" element={<Settings />} />
+      </Route>
+
+      {/* Catch all redirect */}
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
