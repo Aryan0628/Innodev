@@ -20,6 +20,7 @@ const HeroSection = () => {
           Civora
         </h1>
 
+
         {/* Primary subheading */}
         <p className="text-lg md:text-2xl text-white/80 mb-4">
           A synthetic society where decisions come to life.
@@ -36,3 +37,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

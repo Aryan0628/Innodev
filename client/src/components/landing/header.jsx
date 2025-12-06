@@ -3,12 +3,37 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Button } from "@/components/ui/button";
 
 export function Header() {
-  const { loginWithRedirect, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
 
   const handleLogin = async () => {
-    await loginWithRedirect({
-      appState: {
-        returnTo: "/dashboard",
+    try {
+      console.log("Attempting login...");
+      await loginWithRedirect({
+        appState: {
+          returnTo: "/dashboard",
+        },
+        authorizationParams: {
+          redirect_uri: window.location.origin,
+        },
+      });
+    } catch (error) {
+      // Ignore Chrome extension errors (these are harmless)
+      if (error?.message?.includes('message port') || 
+          error?.message?.includes('lastError') ||
+          error?.message?.includes('Extension context')) {
+        console.warn("Browser extension error (ignored):", error.message);
+        // The redirect should still work, so we can return silently
+        return;
+      }
+      console.error("❌ Login error:", error);
+      alert(`Login failed: ${error?.message || "Please check your Auth0 configuration"}`);
+    }
+  };
+
+  const handleLogout = () => {
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
       },
     });
   };
@@ -17,7 +42,8 @@ export function Header() {
     const element = document.getElementById(sectionId);
     if (element) {
       const headerHeight = 100; // Account for top-6 offset + header height
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - headerHeight;
 
       window.scrollTo({
@@ -42,11 +68,44 @@ export function Header() {
             >
               {/* Interconnected gears/network logo */}
               <circle cx="12" cy="12" r="3" stroke="currentColor" fill="none" />
-              <circle cx="8" cy="8" r="2" stroke="currentColor" fill="none" opacity="0.7" />
-              <circle cx="16" cy="8" r="2" stroke="currentColor" fill="none" opacity="0.7" />
-              <circle cx="8" cy="16" r="2" stroke="currentColor" fill="none" opacity="0.7" />
-              <circle cx="16" cy="16" r="2" stroke="currentColor" fill="none" opacity="0.7" />
-              <path d="M10 10 L12 12 M14 10 L12 12 M10 14 L12 12 M14 14 L12 12" stroke="currentColor" strokeWidth="1" opacity="0.5" />
+              <circle
+                cx="8"
+                cy="8"
+                r="2"
+                stroke="currentColor"
+                fill="none"
+                opacity="0.7"
+              />
+              <circle
+                cx="16"
+                cy="8"
+                r="2"
+                stroke="currentColor"
+                fill="none"
+                opacity="0.7"
+              />
+              <circle
+                cx="8"
+                cy="16"
+                r="2"
+                stroke="currentColor"
+                fill="none"
+                opacity="0.7"
+              />
+              <circle
+                cx="16"
+                cy="16"
+                r="2"
+                stroke="currentColor"
+                fill="none"
+                opacity="0.7"
+              />
+              <path
+                d="M10 10 L12 12 M14 10 L12 12 M10 14 L12 12 M14 14 L12 12"
+                stroke="currentColor"
+                strokeWidth="1"
+                opacity="0.5"
+              />
             </svg>
           </div>
           <span className="text-sm font-medium tracking-[0.2em] uppercase text-white">
@@ -79,8 +138,8 @@ export function Header() {
           </button>
         </div>
 
-        {/* Login Button */}
-        {!isAuthenticated && (
+        {/* Login/Logout Button */}
+        {!isAuthenticated ? (
           <Button
             variant="outline"
             size="sm"
@@ -88,6 +147,15 @@ export function Header() {
             onClick={handleLogin}
           >
             Log In
+          </Button>
+        ) : (
+          <Button
+            variant="outline"
+            size="sm"
+            className="rounded-full border-white/15 bg-white/5 text-white hover:bg-white/10 hover:border-white/25"
+            onClick={handleLogout}
+          >
+            Log Out
           </Button>
         )}
       </nav>

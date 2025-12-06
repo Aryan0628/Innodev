@@ -8,11 +8,28 @@ export function Hero() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   const handleLogin = async () => {
-    await loginWithRedirect({
-      appState: {
-        returnTo: "/dashboard",
-      },
-    });
+    try {
+      console.log("Attempting login...");
+      await loginWithRedirect({
+        appState: {
+          returnTo: "/dashboard",
+        },
+        authorizationParams: {
+          redirect_uri: window.location.origin,
+        },
+      });
+    } catch (error) {
+      // Ignore Chrome extension errors (these are harmless)
+      if (error?.message?.includes('message port') || 
+          error?.message?.includes('lastError') ||
+          error?.message?.includes('Extension context')) {
+        console.warn("Browser extension error (ignored):", error.message);
+        // The redirect should still work, so we can return silently
+        return;
+      }
+      console.error("❌ Login error:", error);
+      alert(`Login failed: ${error?.message || "Please check your Auth0 configuration"}`);
+    }
   };
   return (
     <section className="relative flex min-h-screen items-center justify-center pt-24">
@@ -22,9 +39,7 @@ export function Hero() {
       <div
         ref={ref}
         className={`relative z-10 mx-auto max-w-4xl px-6 text-center transition-all duration-1000 ${
-          isVisible
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-8"
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
         {/* Badge with green dot */}

@@ -8,11 +8,28 @@ export function CTA() {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   const handleLogin = async () => {
-    await loginWithRedirect({
-      appState: {
-        returnTo: "/dashboard",
-      },
-    });
+    try {
+      console.log("Attempting login...");
+      await loginWithRedirect({
+        appState: {
+          returnTo: "/dashboard",
+        },
+        authorizationParams: {
+          redirect_uri: window.location.origin,
+        },
+      });
+    } catch (error) {
+      // Ignore Chrome extension errors (these are harmless)
+      if (error?.message?.includes('message port') || 
+          error?.message?.includes('lastError') ||
+          error?.message?.includes('Extension context')) {
+        console.warn("Browser extension error (ignored):", error.message);
+        // The redirect should still work, so we can return silently
+        return;
+      }
+      console.error("❌ Login error:", error);
+      alert(`Login failed: ${error?.message || "Please check your Auth0 configuration"}`);
+    }
   };
   return (
     <section className="border-t border-white/10 bg-[oklch(0.12_0_0)]/30 py-24">
