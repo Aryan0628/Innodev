@@ -1,0 +1,369 @@
+{
+  "divisions": [
+    {
+      "name": "Kolhan",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.362
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.53
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.423
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.845
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.205
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.07
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.2
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.38
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.15
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.658
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.4
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.35
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.3
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.375
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.25
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.25
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.25
+        }
+      ]
+    },
+    {
+      "name": "North Chotanagpur",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.365
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.52
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.419
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.865
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.182
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.12
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.25
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.42
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.2
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.674
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.35
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.375
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.325
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.45
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.3
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.25
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.375
+        }
+      ]
+    },
+    {
+      "name": "Palamu",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.371
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.54
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.431
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.872
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.168
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.22
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.125
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.32
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.125
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.592
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.45
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.3
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.2
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.25
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.2
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.125
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.125
+        }
+      ]
+    },
+    {
+      "name": "Santhal Pargana",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.373
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.55
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.423
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.882
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.155
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.62
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.05
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.25
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.05
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.569
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.5
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.25
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.125
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.2
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.125
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.05
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.05
+        }
+      ]
+    },
+    {
+      "name": "South Chotanagpur",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.358
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.51
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.44
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.858
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.145
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.08
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.375
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.58
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.25
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.685
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.25
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.45
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.4
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.55
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.4
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.375
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.55
+        }
+      ]
+    }
+  ]
+}

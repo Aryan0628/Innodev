@@ -1,0 +1,1042 @@
+{
+  "divisions": [
+    {
+      "name": "North Coastal Tribal Zone",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.335
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.046
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.738
+        },
+        {
+          "name": "1.4 Urbanization Category",
+          "value": 0.5
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.925
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.228
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.092
+        },
+        {
+          "name": "2.1 Income Per Capita ₹",
+          "value": 1.0
+        },
+        {
+          "name": "2.2 Poverty Below Line %",
+          "value": 0.112
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.669
+        },
+        {
+          "name": "2.4 Education Level Secondary %",
+          "value": 0.031
+        },
+        {
+          "name": "2.5 Occupation Agriculture %",
+          "value": 0.52
+        },
+        {
+          "name": "2.6 Employment Formal %",
+          "value": 0.55
+        },
+        {
+          "name": "2.7 Wealth Quintile Q1 %",
+          "value": 0.004
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.028
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.026
+        },
+        {
+          "name": "3.3 Institutional Trust 0to100",
+          "value": 0.58
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.024
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.52
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.022
+        },
+        {
+          "name": "4.3 Nutritional Status Stunting %",
+          "value": 0.335
+        },
+        {
+          "name": "4.4 Disease Risk 0to100",
+          "value": 0.24
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.024
+        },
+        {
+          "name": "5.2 Debt Vulnerability %",
+          "value": 0.22
+        },
+        {
+          "name": "5.3 Savings Rate %",
+          "value": 0.12
+        },
+        {
+          "name": "6.1 Housing Type Pucca %",
+          "value": 0.58
+        },
+        {
+          "name": "6.2 Housing Cost Burden %",
+          "value": 0.28
+        },
+        {
+          "name": "7.1 Commute Time Minutes",
+          "value": 0.267
+        },
+        {
+          "name": "7.2 Transportation Mode",
+          "value": 0.5
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.024
+        },
+        {
+          "name": "9.1 Voting Behavior",
+          "value": 0.5
+        },
+        {
+          "name": "9.2 Civic Participation Hours Year",
+          "value": 0.22
+        },
+        {
+          "name": "9.3 Media Consumption",
+          "value": 0.5
+        },
+        {
+          "name": "10.1 Internet Connectivity",
+          "value": 0.5
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.022
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.58
+        },
+        {
+          "name": "11.1 Pollution Exposure AQI",
+          "value": 1.0
+        },
+        {
+          "name": "11.2 Climate Vulnerability Scale",
+          "value": 0.028
+        },
+        {
+          "name": "11.3 Green Space Access %",
+          "value": 0.28
+        },
+        {
+          "name": "12.1 Citizenship Status",
+          "value": 0.5
+        },
+        {
+          "name": "12.2 Criminal Record Yes %",
+          "value": 0.018
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.024
+        }
+      ]
+    },
+    {
+      "name": "Godavari Delta Agro Zone",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.322
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.045
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.69
+        },
+        {
+          "name": "1.4 Urbanization Category",
+          "value": 0.5
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.942
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.195
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.012
+        },
+        {
+          "name": "2.1 Income Per Capita ₹",
+          "value": 1.0
+        },
+        {
+          "name": "2.2 Poverty Below Line %",
+          "value": 0.082
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.728
+        },
+        {
+          "name": "2.4 Education Level Secondary %",
+          "value": 0.038
+        },
+        {
+          "name": "2.5 Occupation Agriculture %",
+          "value": 0.62
+        },
+        {
+          "name": "2.6 Employment Formal %",
+          "value": 0.58
+        },
+        {
+          "name": "2.7 Wealth Quintile Q1 %",
+          "value": 0.003
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.026
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.028
+        },
+        {
+          "name": "3.3 Institutional Trust 0to100",
+          "value": 0.65
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.03
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.62
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.026
+        },
+        {
+          "name": "4.3 Nutritional Status Stunting %",
+          "value": 0.302
+        },
+        {
+          "name": "4.4 Disease Risk 0to100",
+          "value": 0.2
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.028
+        },
+        {
+          "name": "5.2 Debt Vulnerability %",
+          "value": 0.16
+        },
+        {
+          "name": "5.3 Savings Rate %",
+          "value": 0.18
+        },
+        {
+          "name": "6.1 Housing Type Pucca %",
+          "value": 0.68
+        },
+        {
+          "name": "6.2 Housing Cost Burden %",
+          "value": 0.24
+        },
+        {
+          "name": "7.1 Commute Time Minutes",
+          "value": 0.233
+        },
+        {
+          "name": "7.2 Transportation Mode",
+          "value": 0.5
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.028
+        },
+        {
+          "name": "9.1 Voting Behavior",
+          "value": 0.5
+        },
+        {
+          "name": "9.2 Civic Participation Hours Year",
+          "value": 0.28
+        },
+        {
+          "name": "9.3 Media Consumption",
+          "value": 0.5
+        },
+        {
+          "name": "10.1 Internet Connectivity",
+          "value": 0.5
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.026
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.68
+        },
+        {
+          "name": "11.1 Pollution Exposure AQI",
+          "value": 0.92
+        },
+        {
+          "name": "11.2 Climate Vulnerability Scale",
+          "value": 0.022
+        },
+        {
+          "name": "11.3 Green Space Access %",
+          "value": 0.38
+        },
+        {
+          "name": "12.1 Citizenship Status",
+          "value": 0.5
+        },
+        {
+          "name": "12.2 Criminal Record Yes %",
+          "value": 0.012
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.028
+        }
+      ]
+    },
+    {
+      "name": "Krishna Guntur Urban Corridor",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.33
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.044
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.357
+        },
+        {
+          "name": "1.4 Urbanization Category",
+          "value": 0.5
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.93
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.172
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.015
+        },
+        {
+          "name": "2.1 Income Per Capita ₹",
+          "value": 1.0
+        },
+        {
+          "name": "2.2 Poverty Below Line %",
+          "value": 0.09
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.737
+        },
+        {
+          "name": "2.4 Education Level Secondary %",
+          "value": 0.04
+        },
+        {
+          "name": "2.5 Occupation Agriculture %",
+          "value": 0.48
+        },
+        {
+          "name": "2.6 Employment Formal %",
+          "value": 0.62
+        },
+        {
+          "name": "2.7 Wealth Quintile Q1 %",
+          "value": 0.003
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.028
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.03
+        },
+        {
+          "name": "3.3 Institutional Trust 0to100",
+          "value": 0.68
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.032
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.64
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.028
+        },
+        {
+          "name": "4.3 Nutritional Status Stunting %",
+          "value": 0.31
+        },
+        {
+          "name": "4.4 Disease Risk 0to100",
+          "value": 0.19
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.03
+        },
+        {
+          "name": "5.2 Debt Vulnerability %",
+          "value": 0.14
+        },
+        {
+          "name": "5.3 Savings Rate %",
+          "value": 0.22
+        },
+        {
+          "name": "6.1 Housing Type Pucca %",
+          "value": 0.72
+        },
+        {
+          "name": "6.2 Housing Cost Burden %",
+          "value": 0.22
+        },
+        {
+          "name": "7.1 Commute Time Minutes",
+          "value": 0.2
+        },
+        {
+          "name": "7.2 Transportation Mode",
+          "value": 0.5
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.032
+        },
+        {
+          "name": "9.1 Voting Behavior",
+          "value": 0.5
+        },
+        {
+          "name": "9.2 Civic Participation Hours Year",
+          "value": 0.32
+        },
+        {
+          "name": "9.3 Media Consumption",
+          "value": 0.5
+        },
+        {
+          "name": "10.1 Internet Connectivity",
+          "value": 0.5
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.028
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.72
+        },
+        {
+          "name": "11.1 Pollution Exposure AQI",
+          "value": 1.0
+        },
+        {
+          "name": "11.2 Climate Vulnerability Scale",
+          "value": 0.024
+        },
+        {
+          "name": "11.3 Green Space Access %",
+          "value": 0.32
+        },
+        {
+          "name": "12.1 Citizenship Status",
+          "value": 0.5
+        },
+        {
+          "name": "12.2 Criminal Record Yes %",
+          "value": 0.014
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.03
+        }
+      ]
+    },
+    {
+      "name": "South Coastal Fisheries Zone",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.342
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.047
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.19
+        },
+        {
+          "name": "1.4 Urbanization Category",
+          "value": 0.5
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.905
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.2
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.021
+        },
+        {
+          "name": "2.1 Income Per Capita ₹",
+          "value": 1.0
+        },
+        {
+          "name": "2.2 Poverty Below Line %",
+          "value": 0.105
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.689
+        },
+        {
+          "name": "2.4 Education Level Secondary %",
+          "value": 0.033
+        },
+        {
+          "name": "2.5 Occupation Agriculture %",
+          "value": 0.58
+        },
+        {
+          "name": "2.6 Employment Formal %",
+          "value": 0.56
+        },
+        {
+          "name": "2.7 Wealth Quintile Q1 %",
+          "value": 0.004
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.026
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.028
+        },
+        {
+          "name": "3.3 Institutional Trust 0to100",
+          "value": 0.62
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.028
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.58
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.024
+        },
+        {
+          "name": "4.3 Nutritional Status Stunting %",
+          "value": 0.325
+        },
+        {
+          "name": "4.4 Disease Risk 0to100",
+          "value": 0.22
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.026
+        },
+        {
+          "name": "5.2 Debt Vulnerability %",
+          "value": 0.2
+        },
+        {
+          "name": "5.3 Savings Rate %",
+          "value": 0.15
+        },
+        {
+          "name": "6.1 Housing Type Pucca %",
+          "value": 0.64
+        },
+        {
+          "name": "6.2 Housing Cost Burden %",
+          "value": 0.26
+        },
+        {
+          "name": "7.1 Commute Time Minutes",
+          "value": 0.25
+        },
+        {
+          "name": "7.2 Transportation Mode",
+          "value": 0.5
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.026
+        },
+        {
+          "name": "9.1 Voting Behavior",
+          "value": 0.5
+        },
+        {
+          "name": "9.2 Civic Participation Hours Year",
+          "value": 0.26
+        },
+        {
+          "name": "9.3 Media Consumption",
+          "value": 0.5
+        },
+        {
+          "name": "10.1 Internet Connectivity",
+          "value": 0.5
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.024
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.62
+        },
+        {
+          "name": "11.1 Pollution Exposure AQI",
+          "value": 1.0
+        },
+        {
+          "name": "11.2 Climate Vulnerability Scale",
+          "value": 0.032
+        },
+        {
+          "name": "11.3 Green Space Access %",
+          "value": 0.26
+        },
+        {
+          "name": "12.1 Citizenship Status",
+          "value": 0.5
+        },
+        {
+          "name": "12.2 Criminal Record Yes %",
+          "value": 0.016
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.026
+        }
+      ]
+    },
+    {
+      "name": "Rayalaseema Dryland Zone",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.358
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.05
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.0
+        },
+        {
+          "name": "1.4 Urbanization Category",
+          "value": 0.5
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.885
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.248
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.038
+        },
+        {
+          "name": "2.1 Income Per Capita ₹",
+          "value": 1.0
+        },
+        {
+          "name": "2.2 Poverty Below Line %",
+          "value": 0.164
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.636
+        },
+        {
+          "name": "2.4 Education Level Secondary %",
+          "value": 0.028
+        },
+        {
+          "name": "2.5 Occupation Agriculture %",
+          "value": 0.62
+        },
+        {
+          "name": "2.6 Employment Formal %",
+          "value": 0.42
+        },
+        {
+          "name": "2.7 Wealth Quintile Q1 %",
+          "value": 0.005
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.032
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.018
+        },
+        {
+          "name": "3.3 Institutional Trust 0to100",
+          "value": 0.48
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.018
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.44
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.018
+        },
+        {
+          "name": "4.3 Nutritional Status Stunting %",
+          "value": 0.382
+        },
+        {
+          "name": "4.4 Disease Risk 0to100",
+          "value": 0.28
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.018
+        },
+        {
+          "name": "5.2 Debt Vulnerability %",
+          "value": 0.32
+        },
+        {
+          "name": "5.3 Savings Rate %",
+          "value": 0.06
+        },
+        {
+          "name": "6.1 Housing Type Pucca %",
+          "value": 0.48
+        },
+        {
+          "name": "6.2 Housing Cost Burden %",
+          "value": 0.35
+        },
+        {
+          "name": "7.1 Commute Time Minutes",
+          "value": 0.542
+        },
+        {
+          "name": "7.2 Transportation Mode",
+          "value": 0.5
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.02
+        },
+        {
+          "name": "9.1 Voting Behavior",
+          "value": 0.5
+        },
+        {
+          "name": "9.2 Civic Participation Hours Year",
+          "value": 0.18
+        },
+        {
+          "name": "9.3 Media Consumption",
+          "value": 0.5
+        },
+        {
+          "name": "10.1 Internet Connectivity",
+          "value": 0.5
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.016
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.42
+        },
+        {
+          "name": "11.1 Pollution Exposure AQI",
+          "value": 0.78
+        },
+        {
+          "name": "11.2 Climate Vulnerability Scale",
+          "value": 0.038
+        },
+        {
+          "name": "11.3 Green Space Access %",
+          "value": 0.22
+        },
+        {
+          "name": "12.1 Citizenship Status",
+          "value": 0.5
+        },
+        {
+          "name": "12.2 Criminal Record Yes %",
+          "value": 0.008
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.018
+        }
+      ]
+    },
+    {
+      "name": "Rayalaseema Temple Hill Zone",
+      "factors": [
+        {
+          "name": "1.1 Age Mean",
+          "value": 0.345
+        },
+        {
+          "name": "1.2 Household Size",
+          "value": 0.048
+        },
+        {
+          "name": "1.3 Sex Ratio",
+          "value": 0.786
+        },
+        {
+          "name": "1.4 Urbanization Category",
+          "value": 0.5
+        },
+        {
+          "name": "1.5 Religion Hindu %",
+          "value": 0.872
+        },
+        {
+          "name": "1.6 Caste SC %",
+          "value": 0.25
+        },
+        {
+          "name": "1.7 Tribal Concentration %",
+          "value": 0.285
+        },
+        {
+          "name": "2.1 Income Per Capita ₹",
+          "value": 1.0
+        },
+        {
+          "name": "2.2 Poverty Below Line %",
+          "value": 0.128
+        },
+        {
+          "name": "2.3 Literacy Rate %",
+          "value": 0.589
+        },
+        {
+          "name": "2.4 Education Level Secondary %",
+          "value": 0.029
+        },
+        {
+          "name": "2.5 Occupation Agriculture %",
+          "value": 0.58
+        },
+        {
+          "name": "2.6 Employment Formal %",
+          "value": 0.48
+        },
+        {
+          "name": "2.7 Wealth Quintile Q1 %",
+          "value": 0.004
+        },
+        {
+          "name": "3.1 Caste Consciousness Scale",
+          "value": 0.03
+        },
+        {
+          "name": "3.2 Risk Tolerance Scale",
+          "value": 0.024
+        },
+        {
+          "name": "3.3 Institutional Trust 0to100",
+          "value": 0.56
+        },
+        {
+          "name": "3.4 Change Adaptability Scale",
+          "value": 0.02
+        },
+        {
+          "name": "4.1 Healthcare Access Scale",
+          "value": 0.5
+        },
+        {
+          "name": "4.2 Health Literacy Scale",
+          "value": 0.02
+        },
+        {
+          "name": "4.3 Nutritional Status Stunting %",
+          "value": 0.358
+        },
+        {
+          "name": "4.4 Disease Risk 0to100",
+          "value": 0.26
+        },
+        {
+          "name": "5.1 Income Stability Scale",
+          "value": 0.02
+        },
+        {
+          "name": "5.2 Debt Vulnerability %",
+          "value": 0.28
+        },
+        {
+          "name": "5.3 Savings Rate %",
+          "value": 0.08
+        },
+        {
+          "name": "6.1 Housing Type Pucca %",
+          "value": 0.52
+        },
+        {
+          "name": "6.2 Housing Cost Burden %",
+          "value": 0.32
+        },
+        {
+          "name": "7.1 Commute Time Minutes",
+          "value": 0.458
+        },
+        {
+          "name": "7.2 Transportation Mode",
+          "value": 0.5
+        },
+        {
+          "name": "7.3 Geographic Mobility Scale",
+          "value": 0.018
+        },
+        {
+          "name": "9.1 Voting Behavior",
+          "value": 0.5
+        },
+        {
+          "name": "9.2 Civic Participation Hours Year",
+          "value": 0.2
+        },
+        {
+          "name": "9.3 Media Consumption",
+          "value": 0.5
+        },
+        {
+          "name": "10.1 Internet Connectivity",
+          "value": 0.5
+        },
+        {
+          "name": "10.2 Digital Literacy Scale",
+          "value": 0.018
+        },
+        {
+          "name": "10.3 Digital Services Access 0to100",
+          "value": 0.48
+        },
+        {
+          "name": "11.1 Pollution Exposure AQI",
+          "value": 0.68
+        },
+        {
+          "name": "11.2 Climate Vulnerability Scale",
+          "value": 0.026
+        },
+        {
+          "name": "11.3 Green Space Access %",
+          "value": 0.36
+        },
+        {
+          "name": "12.1 Citizenship Status",
+          "value": 0.5
+        },
+        {
+          "name": "12.2 Criminal Record Yes %",
+          "value": 0.022
+        },
+        {
+          "name": "13.1 Policy Awareness Scale",
+          "value": 0.02
+        }
+      ]
+    }
+  ]
+}
