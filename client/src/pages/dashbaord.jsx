@@ -1,18 +1,16 @@
-// pages/Dashboard.jsx - Pure Frontend Version with Mock Data
+// pages/Dashboard.jsx - Updated with Leaflet map
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import HeatmapSimulator from "../components/HeatmapSimulator";
-import { MOCK_HEATMAP_PAYLOAD } from "../data/mockHeatmapData";
+import IndiaMap from "../components/IndiaMap";
 import { INDIA_STATES_GEOJSON } from "../data/indiaStatesGeoJSON";
 
 function Dashboard() {
   const navigate = useNavigate();
   const { isAuthenticated, isLoading } = useAuth0();
-
-  const [heatmapPayload, setHeatmapPayload] = useState(null);
   const [geojsonData, setGeojsonData] = useState(null);
   const [loadingData, setLoadingData] = useState(true);
+  const [error, setError] = useState(null);
 
   // Redirect to landing page if not authenticated
   useEffect(() => {
@@ -25,19 +23,22 @@ function Dashboard() {
   useEffect(() => {
     if (!isAuthenticated) return;
 
-    console.log("📦 Loading mock data for dashboard...");
+    console.log("📦 Loading data for dashboard...");
     setLoadingData(true);
+    setError(null);
 
-    // Simulate async loading
+    // Simulate async loading (in production, this would be an API call)
     setTimeout(() => {
       try {
+        // Load GeoJSON
         setGeojsonData(INDIA_STATES_GEOJSON);
-        setHeatmapPayload(MOCK_HEATMAP_PAYLOAD);
-        console.log("✅ Mock data loaded successfully");
+        
+        
+        console.log("✅ Data loaded successfully");
         console.log("GeoJSON features:", INDIA_STATES_GEOJSON.features.length);
-        console.log("Time series frames:", MOCK_HEATMAP_PAYLOAD.time_series.length);
       } catch (err) {
-        console.error("❌ Error loading mock data:", err);
+        console.error("❌ Error loading data:", err);
+        setError("Failed to load map data. Please refresh the page.");
       } finally {
         setLoadingData(false);
       }
@@ -48,32 +49,57 @@ function Dashboard() {
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black text-white">
-        <div className="text-xl">Checking authentication...</div>
-      </div>
-    );
-  }
-
-  // Not authenticated → redirect to home
-  if (!isAuthenticated) {
-    return null;
-  }
-
-  // Authenticated but loading data
-  if (loadingData || !geojsonData || !heatmapPayload) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-black text-white">
         <div className="text-center">
-          <div className="text-xl mb-2">Loading dashboard...</div>
-          <div className="text-sm text-gray-400">Loading mock India map data</div>
+          <div className="text-xl mb-2">Checking authentication...</div>
+          <div className="text-sm text-gray-400">Please wait</div>
         </div>
       </div>
     );
   }
 
-  // Authenticated and data loaded
+  // Not authenticated → redirect to home (handled by useEffect)
+  if (!isAuthenticated) {
+    return null;
+  }
+
+  // Show error if data loading failed
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        <div className="text-center max-w-md">
+          <div className="text-xl mb-2 text-red-400">❌ {error}</div>
+          <button
+            onClick={() => window.location.reload()}
+            className="mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors"
+          >
+            Reload Page
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // Authenticated but loading data
+  if (loadingData || !geojsonData) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black text-white">
+        <div className="text-center">
+          <div className="text-xl mb-2">Loading dashboard...</div>
+          <div className="text-sm text-gray-400">Preparing India map visualization</div>
+        </div>
+      </div>
+    );
+  }
+
+  // Authenticated and data loaded - show map
   return (
-    <div className="min-h-screen bg-black text-white">
-      <HeatmapSimulator payload={heatmapPayload} geojson={geojsonData} />
+    <div className="min-h-screen bg-black">
+      {/* Map takes full available height below navbar */}
+      <div className="h-[calc(100vh-80px)]">
+        <IndiaMap 
+          geojsonData={geojsonData}
+        />
+      </div>
     </div>
   );
 }

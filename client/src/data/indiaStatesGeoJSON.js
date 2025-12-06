@@ -1,6 +1,12 @@
 // src/data/indiaStatesGeoJSON.js
-// Simplified GeoJSON for Indian states (mock data for development)
-// Real coordinates are simplified for demonstration
+// 
+// NOTE: This is simplified GeoJSON data for development.
+// For production, use real India administrative boundaries from:
+// 1. https://github.com/datameet/maps (Free, India-specific)
+// 2. https://data.gov.in/ (Official Government of India portal)
+// 3. Natural Earth Data: https://www.naturalearthdata.com/
+//
+// Download the full GeoJSON and replace this file.
 
 export const INDIA_STATES_GEOJSON = {
   type: "FeatureCollection",
@@ -15,7 +21,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [77.5, 27.5], [82.5, 27.5], [82.5, 30.5], [77.5, 30.5], [77.5, 27.5]
+          [77.0, 27.0], [82.5, 26.0], [84.0, 27.5], [83.5, 29.5], 
+          [82.0, 30.5], [77.5, 30.3], [76.8, 28.5], [77.0, 27.0]
         ]]
       }
     },
@@ -29,7 +36,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [72.5, 16], [77.5, 16], [77.5, 21], [72.5, 21], [72.5, 16]
+          [72.5, 15.5], [77.5, 15.5], [80.5, 18.0], [80.0, 21.5], 
+          [77.0, 22.0], [73.0, 21.5], [72.5, 19.0], [72.5, 15.5]
         ]]
       }
     },
@@ -57,7 +65,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [74, 12], [78, 12], [78, 18], [74, 18], [74, 12]
+          [74.0, 11.5], [78.5, 11.5], [78.5, 15.0], [77.5, 18.5], 
+          [75.0, 18.0], [74.0, 15.5], [74.0, 11.5]
         ]]
       }
     },
@@ -71,7 +80,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [76.5, 8], [80, 8], [80, 13], [76.5, 13], [76.5, 8]
+          [76.2, 8.0], [80.3, 8.0], [80.3, 13.5], [78.0, 13.5], 
+          [77.0, 11.5], [76.2, 10.0], [76.2, 8.0]
         ]]
       }
     },
@@ -85,7 +95,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [68.5, 20.5], [74, 20.5], [74, 24.5], [68.5, 24.5], [68.5, 20.5]
+          [68.0, 20.0], [74.5, 20.5], [74.5, 24.7], [72.0, 24.7], 
+          [68.5, 23.5], [68.0, 20.0]
         ]]
       }
     },
@@ -99,7 +110,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [69.5, 24], [78, 24], [78, 30], [69.5, 30], [69.5, 24]
+          [69.0, 23.5], [78.5, 24.0], [78.0, 30.5], [73.0, 30.5], 
+          [70.0, 28.0], [69.0, 25.0], [69.0, 23.5]
         ]]
       }
     },
@@ -113,7 +125,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [85.5, 21.5], [89.5, 21.5], [89.5, 27.5], [85.5, 27.5], [85.5, 21.5]
+          [85.5, 21.5], [89.5, 21.5], [89.5, 27.5], [88.0, 27.5], 
+          [87.0, 25.5], [85.5, 24.0], [85.5, 21.5]
         ]]
       }
     },
@@ -127,7 +140,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [77, 13], [84.5, 13], [84.5, 19.5], [77, 19.5], [77, 13]
+          [76.8, 13.0], [84.8, 13.0], [84.8, 19.0], [82.0, 19.5], 
+          [78.5, 18.0], [77.0, 15.0], [76.8, 13.0]
         ]]
       }
     },
@@ -141,7 +155,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [77, 16], [81, 16], [81, 19.5], [77, 19.5], [77, 16]
+          [77.0, 15.8], [81.5, 16.0], [81.0, 19.5], [78.2, 19.5], 
+          [77.0, 18.0], [77.0, 15.8]
         ]]
       }
     },
@@ -155,7 +170,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [74, 21.5], [82, 21.5], [82, 26.5], [74, 26.5], [74, 21.5]
+          [74.0, 21.0], [82.5, 21.5], [82.5, 26.5], [77.0, 27.0], 
+          [74.5, 25.0], [74.0, 21.0]
         ]]
       }
     },
@@ -169,7 +185,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [74.5, 8.5], [77.5, 8.5], [77.5, 12.5], [74.5, 12.5], [74.5, 8.5]
+          [74.8, 8.3], [77.5, 8.3], [77.5, 12.8], [75.0, 12.8], 
+          [74.8, 10.5], [74.8, 8.3]
         ]]
       }
     },
@@ -183,7 +200,8 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [81.5, 17.5], [87, 17.5], [87, 22.5], [81.5, 22.5], [81.5, 17.5]
+          [81.0, 17.8], [87.5, 17.8], [87.5, 22.6], [84.5, 22.6], 
+          [82.0, 20.5], [81.0, 17.8]
         ]]
       }
     },
@@ -197,7 +215,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [74, 29.5], [76.5, 29.5], [76.5, 32], [74, 32], [74, 29.5]
+          [73.9, 29.5], [76.9, 29.5], [76.9, 32.5], [74.5, 32.5], [73.9, 29.5]
         ]]
       }
     },
@@ -211,7 +229,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [74.5, 27.5], [77.5, 27.5], [77.5, 30.5], [74.5, 30.5], [74.5, 27.5]
+          [74.5, 27.6], [77.8, 27.6], [77.8, 30.9], [75.5, 30.9], [74.5, 27.6]
         ]]
       }
     },
@@ -225,7 +243,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [80, 17.5], [84, 17.5], [84, 24], [80, 24], [80, 17.5]
+          [80.0, 17.8], [84.5, 17.8], [84.5, 24.1], [80.5, 24.1], [80.0, 17.8]
         ]]
       }
     },
@@ -239,7 +257,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [83.5, 22], [87, 22], [87, 25], [83.5, 25], [83.5, 22]
+          [83.3, 21.9], [87.9, 21.9], [87.9, 25.3], [84.6, 25.3], [83.3, 21.9]
         ]]
       }
     },
@@ -253,7 +271,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [89.5, 24.5], [96, 24.5], [96, 28], [89.5, 28], [89.5, 24.5]
+          [89.7, 24.1], [96.0, 24.1], [96.0, 28.2], [90.5, 28.2], [89.7, 24.1]
         ]]
       }
     },
@@ -267,7 +285,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [77.5, 29], [81, 29], [81, 31.5], [77.5, 31.5], [77.5, 29]
+          [77.5, 28.7], [81.0, 28.7], [81.0, 31.5], [77.5, 31.5], [77.5, 28.7]
         ]]
       }
     },
@@ -281,7 +299,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [75.5, 30.5], [79, 30.5], [79, 33], [75.5, 33], [75.5, 30.5]
+          [75.5, 30.4], [79.0, 30.4], [79.0, 33.2], [75.5, 33.2], [75.5, 30.4]
         ]]
       }
     },
@@ -295,7 +313,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [83.5, 24.5], [88, 24.5], [88, 27.5], [83.5, 27.5], [83.5, 24.5]
+          [83.3, 24.3], [88.3, 24.3], [88.3, 27.5], [84.0, 27.5], [83.3, 24.3]
         ]]
       }
     },
@@ -309,7 +327,7 @@ export const INDIA_STATES_GEOJSON = {
       geometry: {
         type: "Polygon",
         coordinates: [[
-          [73.5, 14.8], [74.5, 14.8], [74.5, 15.8], [73.5, 15.8], [73.5, 14.8]
+          [73.7, 14.9], [74.7, 14.9], [74.7, 15.8], [73.7, 15.8], [73.7, 14.9]
         ]]
       }
     }
