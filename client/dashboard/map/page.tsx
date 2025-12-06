@@ -1,5 +1,5 @@
-import IndiaMap from "@/components/dashboard/india-map";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import IndiaMap from "../../src/components/dashboard/IndiaMap.jsx";
+import { Card, CardContent, CardHeader, CardTitle } from "../../src/components/ui/card.jsx";
 
 export default function MapPage() {
   return (
