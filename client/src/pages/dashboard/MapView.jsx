@@ -5,8 +5,8 @@ export default function MapPage() {
   return (
     <>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold">Interactive Map View</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl font-bold text-white">Interactive Map View</h1>
+        <p className="text-white/70">
           Explore policy support data across all Indian states
         </p>
       </div>
@@ -17,9 +17,9 @@ export default function MapPage() {
         </div>
 
         <div className="space-y-4">
-          <Card>
+          <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-sm">Top Supporters</CardTitle>
+              <CardTitle className="text-sm text-white">Top Supporters</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               {[
@@ -33,8 +33,8 @@ export default function MapPage() {
                   key={item.state}
                   className="flex items-center justify-between text-sm"
                 >
-                  <span>{item.state}</span>
-                  <span className="text-accent font-medium">
+                  <span className="text-white/80">{item.state}</span>
+                  <span className="text-[oklch(0.75_0.18_165)] font-medium">
                     {item.support}%
                   </span>
                 </div>
@@ -42,9 +42,9 @@ export default function MapPage() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-sm">Lowest Support</CardTitle>
+              <CardTitle className="text-sm text-white">Lowest Support</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               {[
@@ -58,8 +58,8 @@ export default function MapPage() {
                   key={item.state}
                   className="flex items-center justify-between text-sm"
                 >
-                  <span>{item.state}</span>
-                  <span className="text-destructive font-medium">
+                  <span className="text-white/80">{item.state}</span>
+                  <span className="text-red-400 font-medium">
                     {item.support}%
                   </span>
                 </div>

@@ -30,24 +30,24 @@ export default function PopulationPage() {
   return (
     <>
       <div className="mb-6">
-        <h1 className="text-2xl font-bold">Population Analytics</h1>
-        <p className="text-muted-foreground">
+        <h1 className="text-2xl font-bold text-white">Population Analytics</h1>
+        <p className="text-white/70">
           Synthetic citizen distribution and demographics
         </p>
       </div>
 
       <div className="grid gap-4 md:grid-cols-4 mb-6">
-        <Card>
+        <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
-              <div className="rounded-lg bg-accent/10 p-3">
-                <Users className="h-5 w-5 text-accent" />
+              <div className="rounded-lg bg-[oklch(0.75_0.18_165)]/10 border border-[oklch(0.75_0.18_165)]/20 p-3">
+                <Users className="h-5 w-5 text-[oklch(0.75_0.18_165)]" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-white/70">
                   Total Population
                 </p>
-                <p className="text-2xl font-bold">
+                <p className="text-2xl font-bold text-white">
                   {populationData.total.toLocaleString()}
                 </p>
               </div>
@@ -55,15 +55,15 @@ export default function PopulationPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
-              <div className="rounded-lg bg-green-500/10 p-3">
-                <UserCheck className="h-5 w-5 text-green-500" />
+              <div className="rounded-lg bg-green-500/10 border border-green-500/20 p-3">
+                <UserCheck className="h-5 w-5 text-green-400" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Active Citizens</p>
-                <p className="text-2xl font-bold">
+                <p className="text-sm text-white/70">Active Citizens</p>
+                <p className="text-2xl font-bold text-white">
                   {populationData.active.toLocaleString()}
                 </p>
               </div>
@@ -71,17 +71,17 @@ export default function PopulationPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
-              <div className="rounded-lg bg-red-500/10 p-3">
-                <UserX className="h-5 w-5 text-red-500" />
+              <div className="rounded-lg bg-red-500/10 border border-red-500/20 p-3">
+                <UserX className="h-5 w-5 text-red-400" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-white/70">
                   Inactive Citizens
                 </p>
-                <p className="text-2xl font-bold">
+                <p className="text-2xl font-bold text-white">
                   {populationData.inactive.toLocaleString()}
                 </p>
               </div>
@@ -89,15 +89,15 @@ export default function PopulationPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
           <CardContent className="pt-6">
             <div className="flex items-center gap-4">
-              <div className="rounded-lg bg-blue-500/10 p-3">
-                <TrendingUp className="h-5 w-5 text-blue-500" />
+              <div className="rounded-lg bg-blue-500/10 border border-blue-500/20 p-3">
+                <TrendingUp className="h-5 w-5 text-blue-400" />
               </div>
               <div>
-                <p className="text-sm text-muted-foreground">Growth Rate</p>
-                <p className="text-2xl font-bold">+{populationData.growth}%</p>
+                <p className="text-sm text-white/70">Growth Rate</p>
+                <p className="text-2xl font-bold text-white">+{populationData.growth}%</p>
               </div>
             </div>
           </CardContent>
@@ -105,22 +105,22 @@ export default function PopulationPage() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
-        <Card>
+        <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Demographics</CardTitle>
+            <CardTitle className="text-white">Demographics</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {populationData.demographics.map((item) => (
               <div key={item.category}>
                 <div className="flex justify-between mb-1 text-sm">
-                  <span>{item.category}</span>
-                  <span className="text-muted-foreground">
+                  <span className="text-white/80">{item.category}</span>
+                  <span className="text-white/60">
                     {item.count.toLocaleString()} ({item.percentage}%)
                   </span>
                 </div>
-                <div className="h-2 rounded-full bg-secondary">
+                <div className="h-2 rounded-full bg-white/10">
                   <div
-                    className="h-full rounded-full bg-accent"
+                    className="h-full rounded-full bg-[oklch(0.75_0.18_165)]"
                     style={{ width: `${item.percentage}%` }}
                   />
                 </div>
@@ -129,22 +129,22 @@ export default function PopulationPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Age Distribution</CardTitle>
+            <CardTitle className="text-white">Age Distribution</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {populationData.ageGroups.map((item) => (
               <div key={item.group}>
                 <div className="flex justify-between mb-1 text-sm">
-                  <span>{item.group}</span>
-                  <span className="text-muted-foreground">
+                  <span className="text-white/80">{item.group}</span>
+                  <span className="text-white/60">
                     {item.percentage}%
                   </span>
                 </div>
-                <div className="h-2 rounded-full bg-secondary">
+                <div className="h-2 rounded-full bg-white/10">
                   <div
-                    className="h-full rounded-full bg-accent"
+                    className="h-full rounded-full bg-[oklch(0.75_0.18_165)]"
                     style={{ width: `${item.percentage}%` }}
                   />
                 </div>
@@ -153,22 +153,22 @@ export default function PopulationPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
           <CardHeader>
-            <CardTitle>Income Groups</CardTitle>
+            <CardTitle className="text-white">Income Groups</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {populationData.incomeGroups.map((item) => (
               <div key={item.group}>
                 <div className="flex justify-between mb-1 text-sm">
-                  <span>{item.group}</span>
-                  <span className="text-muted-foreground">
+                  <span className="text-white/80">{item.group}</span>
+                  <span className="text-white/60">
                     {item.count.toLocaleString()} ({item.percentage}%)
                   </span>
                 </div>
-                <div className="h-2 rounded-full bg-secondary">
+                <div className="h-2 rounded-full bg-white/10">
                   <div
-                    className="h-full rounded-full bg-accent"
+                    className="h-full rounded-full bg-[oklch(0.75_0.18_165)]"
                     style={{ width: `${item.percentage}%` }}
                   />
                 </div>

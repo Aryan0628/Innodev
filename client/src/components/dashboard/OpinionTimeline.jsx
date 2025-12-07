@@ -1,3 +1,5 @@
+"use client";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   LineChart,
@@ -19,9 +21,9 @@ const timelineData = [
 
 function OpinionTimeline() {
   return (
-    <Card>
+    <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle className="text-base">
+        <CardTitle className="text-base text-white">
           Opinion Evolution (DeGroot Model)
         </CardTitle>
       </CardHeader>
@@ -29,18 +31,20 @@ function OpinionTimeline() {
         <div className="h-48">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={timelineData}>
-              <XAxis dataKey="round" tick={{ fontSize: 12 }} stroke="#6b7280" />
+              <XAxis dataKey="round" tick={{ fontSize: 12, fill: "rgba(255,255,255,0.7)" }} stroke="rgba(255,255,255,0.5)" />
               <YAxis
-                tick={{ fontSize: 12 }}
-                stroke="#6b7280"
+                tick={{ fontSize: 12, fill: "rgba(255,255,255,0.7)" }}
+                stroke="rgba(255,255,255,0.5)"
                 domain={[0, 100]}
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "hsl(var(--popover))",
-                  border: "1px solid hsl(var(--border))",
+                  backgroundColor: "oklch(0.15 0 0)",
+                  border: "1px solid rgba(255,255,255,0.1)",
                   borderRadius: "8px",
+                  color: "#fff",
                 }}
+                labelStyle={{ color: "#fff" }}
               />
               <Line
                 type="monotone"
@@ -61,7 +65,7 @@ function OpinionTimeline() {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <p className="mt-2 text-xs text-muted-foreground">
+        <p className="mt-2 text-xs text-white/60">
           Simulation converged after 6 rounds using bounded confidence model
         </p>
       </CardContent>

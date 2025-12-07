@@ -1,3 +1,4 @@
+"use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card.jsx";
 import { Progress } from "../../components/ui/progress.jsx";
@@ -18,18 +19,18 @@ const incomeGroups = [
 
 function DemographicBreakdown() {
   return (
-    <Card>
+    <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle className="text-base">Demographic Breakdown</CardTitle>
+        <CardTitle className="text-base text-white">Demographic Breakdown</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
         {demographics.map((demo) => (
           <div key={demo.category}>
             <div className="mb-1 flex justify-between text-sm">
-              <span className="text-muted-foreground">{demo.category}</span>
-              <span className="font-medium">{demo.support}%</span>
+              <span className="text-white/70">{demo.category}</span>
+              <span className="font-medium text-white">{demo.support}%</span>
             </div>
-            <div className="flex h-2 overflow-hidden rounded-full bg-muted">
+            <div className="flex h-2 overflow-hidden rounded-full bg-white/10">
               <div
                 className="bg-green-500 transition-all"
                 style={{ width: `${demo.support}%` }}
@@ -42,13 +43,13 @@ function DemographicBreakdown() {
           </div>
         ))}
 
-        <div className="border-t border-border pt-4">
-          <p className="mb-3 text-sm font-medium">By Income Level</p>
+        <div className="border-t border-white/10 pt-4">
+          <p className="mb-3 text-sm font-medium text-white">By Income Level</p>
           {incomeGroups.map((group) => (
             <div key={group.group} className="mb-2">
               <div className="mb-1 flex justify-between text-sm">
-                <span className="text-muted-foreground">{group.group}</span>
-                <span className="font-medium">{group.support}%</span>
+                <span className="text-white/70">{group.group}</span>
+                <span className="font-medium text-white">{group.support}%</span>
               </div>
               <Progress value={group.support} className="h-1.5" />
             </div>

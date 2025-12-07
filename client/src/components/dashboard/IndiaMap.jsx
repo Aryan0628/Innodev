@@ -1,3 +1,4 @@
+"use client";
 
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -55,9 +56,9 @@ function IndiaMap() {
   };
 
   return (
-    <Card>
+    <Card className="border-white/10 bg-[oklch(0.15_0_0)]/50 backdrop-blur-sm">
       <CardHeader>
-        <CardTitle className="flex items-center justify-between">
+        <CardTitle className="flex items-center justify-between text-white">
           <span>Policy Support Heatmap - India</span>
           <div className="flex items-center gap-2 text-xs font-normal">
             <span className="flex items-center gap-1">

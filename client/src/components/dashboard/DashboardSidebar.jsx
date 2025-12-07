@@ -24,12 +24,12 @@ function DashboardSidebar() {
   const { pathname } = useLocation();
 
   return (
-    <aside className="flex w-64 flex-col border-r border-sidebar-border bg-sidebar">
-      <div className="flex h-16 items-center gap-2 border-b border-sidebar-border px-6">
-        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-sidebar-border">
+    <aside className="flex w-64 flex-col border-r border-white/10 bg-[oklch(0.12_0_0)]/50 backdrop-blur-sm">
+      <div className="flex h-16 items-center gap-2 border-b border-white/10 px-6">
+        <div className="flex h-8 w-8 items-center justify-center rounded-full border border-[oklch(0.75_0.18_165)]/30 bg-[oklch(0.75_0.18_165)]/10">
           <svg
             viewBox="0 0 24 24"
-            className="h-4 w-4"
+            className="h-4 w-4 text-[oklch(0.75_0.18_165)]"
             fill="none"
             stroke="currentColor"
             strokeWidth="1.5"
@@ -39,7 +39,7 @@ function DashboardSidebar() {
             <path d="M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
           </svg>
         </div>
-        <span className="text-sm font-medium tracking-widest text-sidebar-foreground">
+        <span className="text-sm font-medium tracking-[0.2em] uppercase text-white">
           CIVORA
         </span>
       </div>
@@ -47,20 +47,19 @@ function DashboardSidebar() {
       <nav className="flex-1 p-4">
         <ul className="space-y-1">
           {navItems.map((item) => {
-            // Check for exact match or sub-route
-            const isActive = pathname === item.href;
+            const isActive = pathname === item.href || pathname.startsWith(item.href + "/");
             return (
               <li key={item.label}>
                 <Link
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
+                    "flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all",
                     isActive
-                      ? "bg-sidebar-accent text-sidebar-accent-foreground"
-                      : "text-sidebar-foreground/70 hover:bg-sidebar-accent/50 hover:text-sidebar-foreground"
+                      ? "bg-[oklch(0.75_0.18_165)]/20 text-[oklch(0.75_0.18_165)] border border-[oklch(0.75_0.18_165)]/30 shadow-lg shadow-[oklch(0.75_0.18_165)]/10"
+                      : "text-white/70 hover:bg-white/10 hover:text-white"
                   )}
                 >
-                  <item.icon className="h-4 w-4" />
+                  <item.icon className={cn("h-4 w-4", isActive && "text-[oklch(0.75_0.18_165)]")} />
                   {item.label}
                 </Link>
               </li>
@@ -69,12 +68,12 @@ function DashboardSidebar() {
         </ul>
       </nav>
 
-      <div className="border-t border-sidebar-border p-4">
+      <div className="border-t border-white/10 p-4">
         <Link
           to="/"
-          className="text-xs text-sidebar-foreground/50 hover:text-sidebar-foreground"
+          className="text-xs text-white/50 hover:text-white transition-colors"
         >
-          Back to Home
+          ← Back to Home
         </Link>
       </div>
     </aside>

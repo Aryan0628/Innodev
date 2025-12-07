@@ -1,6 +1,10 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import userRouter from "./src/routes/user.router.js";
+import heatmapRouter from "./src/routes/heatmap.route.js";
+import dashboardRouter from "./src/routes/dashboard.route.js";
+import pdfRouter from "./src/routes/pdf.routes.js";
 
 const app = express();
 
@@ -54,17 +58,14 @@ app.get("/health", (req, res) => {
 });
 
 // Test endpoint
+app.get("/api/test", (req, res) => {
+  res.json({ message: "API is working", timestamp: new Date().toISOString() });
+});
 
-import userRouter from "./src/routes/user.router.js";
+// Routes
 app.use("/api/users", userRouter);
-
-import heatmapRouter from "./src/routes/heatmap.route.js";
 app.use("/api/heatmap", heatmapRouter);
-
-import dashboardRouter from "./src/routes/dashboard.route.js";
 app.use("/api/dashboard", dashboardRouter);
-
-import pdfRouter from "./src/routes/pdf.routes.js";
 app.use("/api/pdf", pdfRouter);
 
 // Error handling middleware
