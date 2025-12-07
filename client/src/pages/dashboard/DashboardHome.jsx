@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
+import WorldMapSimulation from "../../components/dashboard/WorldMapSimulation.jsx";
 import IndiaMap from "../../components/dashboard/IndiaMap.jsx";
 import MetricsCards from "../../components/dashboard/MetricsCards.jsx";
 import PolicySelector from "../../components/dashboard/PolicySelector.jsx";
@@ -10,37 +11,73 @@ function DashboardHome() {
   const [selectedPolicy, setSelectedPolicy] = useState("digital");
   const [hasRun, setHasRun] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
+  const [loadingInitial, setLoadingInitial] = useState(true);
+
+  // Load state from THIS session only
+  useEffect(() => {
+    const stored = window.sessionStorage.getItem("dashboardHasRun");
+    if (stored === "true") {
+      setHasRun(true);
+    }
+    setLoadingInitial(false);
+  }, []);
 
   const runSimulation = async () => {
     if (isRunning) return;
 
     setIsRunning(true);
 
-    // TODO: call backend here
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      // 🔮 Dummy delay (simulate backend)
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    setHasRun(true);       // 👈 this is what flips the label logic
-    setIsRunning(false);
+      // 🧠 Later replace with real backend
+      // const response = await fetch("/api/simulations/run", { ... });
+      // const data = await response.json();
+      // update charts/maps with data
+
+      // Mark simulation as completed THIS session
+      setHasRun(true);
+      window.sessionStorage.setItem("dashboardHasRun", "true");
+
+    } catch (error) {
+      console.error("Simulation error:", error);
+    } finally {
+      setIsRunning(false);
+    }
   };
 
+  // Avoid flicker while reading sessionStorage
+  if (loadingInitial) return null;
+
+
+  // BEFORE FIRST SIMULATION → World map background + centered selector
   if (!hasRun) {
     return (
-      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center">
-        <div className="w-full max-w-xl">
+      <div className="relative h-full w-full overflow-hidden flex items-center justify-center">
+        {/* Background world simulation */}
+        <WorldMapSimulation />
+
+        {/* Centered simulation selector */}
+        <div className="relative z-10 w-full max-w-md px-4 animate-in fade-in zoom-in duration-500">
           <PolicySelector
             selectedPolicy={selectedPolicy}
             onChangePolicy={setSelectedPolicy}
             onRun={runSimulation}
             isRunning={isRunning}
-            hasRun={hasRun}          // 👈 important
+            hasRun={hasRun}
           />
         </div>
       </div>
     );
   }
 
+
+  // AFTER FIRST SIMULATION → Full Dashboard
   return (
-    <>
+    <div className="relative h-full w-full overflow-auto p-6">
+
+      {/* Header text */}
       <div className="mb-6 flex items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold">Policy Simulation Dashboard</h1>
@@ -50,26 +87,30 @@ function DashboardHome() {
         </div>
       </div>
 
+      {/* Top controls */}
       <PolicySelector
         selectedPolicy={selectedPolicy}
         onChangePolicy={setSelectedPolicy}
         onRun={runSimulation}
         isRunning={isRunning}
-        hasRun={hasRun}          // 👈 important here too
+        hasRun={hasRun}
       />
 
+      {/* Metrics */}
       <MetricsCards />
 
+      {/* Main content: India Map + right-side panels */}
       <div className="mt-6 grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <IndiaMap />
         </div>
+
         <div className="space-y-6">
           <DemographicBreakdown />
           <OpinionTimeline />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

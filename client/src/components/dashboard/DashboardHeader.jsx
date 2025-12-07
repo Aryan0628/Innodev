@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Bell, Search, User } from "lucide-react";
 import { Input } from "@/components/ui/input";
