@@ -84,7 +84,6 @@ function DashboardHome() {
         </div>
       </div>
 
-      {/* PDF Upload Card */}
       <div className="mb-6">
         <PdfUploadCard />
       </div>

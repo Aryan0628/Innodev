@@ -54,9 +54,6 @@ app.get("/health", (req, res) => {
 });
 
 // Test endpoint
-app.get("/api/test", (req, res) => {
-  res.json({ message: "API is working", timestamp: new Date().toISOString() });
-});
 
 import userRouter from "./src/routes/user.router.js";
 app.use("/api/users", userRouter);

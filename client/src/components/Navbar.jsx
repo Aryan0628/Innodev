@@ -7,16 +7,6 @@ const Navbar = () => {
   const { isAuthenticated, logout } = useAuth0();
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    logout({
-      logoutParams: {
-        returnTo: window.location.origin,
-      },
-    });
-    // Navigate to landing page after logout
-    navigate("/");
-  };
-
   return (
     <header className="w-full flex justify-center pt-4 px-4">
       <nav
@@ -45,7 +35,9 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {isAuthenticated ? (
             <button
-              onClick={handleLogout}
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
               className="px-5 py-3 rounded-full text-sm font-medium text-white/85 border border-white/15 bg-white/5 backdrop-blur-md hover:bg-white/10 hover:text-white shadow-[0_0_8px_rgba(255,255,255,0.04)]"
             >
               Log Out
