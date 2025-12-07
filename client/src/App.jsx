@@ -2,6 +2,8 @@ import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import LandingPage from "./pages/Landing";
+import PdfUploader from "./components/PdfUploader.jsx";
+
 
 // Dashboard Components
 import DashboardLayout from "./pages/dashboard/DashboardLayout";

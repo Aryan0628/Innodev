@@ -1,17 +1,33 @@
 import { LogOut as LogOutIcon, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+<<<<<<< HEAD
 import { Input } from "@/components/ui/input";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function DashboardHeader() {
   const { logout } = useAuth0();   // ← hook must be here
+=======
+import { Bell, Search, User, LogOut } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
+
+function DashboardHeader() {
+  const { logout } = useAuth0();
+  const navigate = useNavigate();
+>>>>>>> fd893ca051d5fb29a6d5cacd96dbd1e429a3d52a
 
   const handleLogout = () => {
     logout({
       logoutParams: {
         returnTo: window.location.origin,
       },
+<<<<<<< HEAD
     });å
+=======
+    });
+    navigate("/");
+>>>>>>> fd893ca051d5fb29a6d5cacd96dbd1e429a3d52a
   };
 
   return (
@@ -27,6 +43,16 @@ function DashboardHeader() {
           onClick={handleLogout}>
           <LogOutIcon className="h-4 w-4" />
           Logout
+        </Button>
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleLogout}
+          className="gap-2"
+        >
+          <LogOut className="h-4 w-4" />
+          Log Out
         </Button>
       </div>
     </header>

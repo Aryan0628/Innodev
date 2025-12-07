@@ -6,6 +6,7 @@ import MetricsCards from "../../components/dashboard/MetricsCards.jsx";
 import PolicySelector from "../../components/dashboard/PolicySelector.jsx";
 import DemographicBreakdown from "../../components/dashboard/DemographicBreakdown.jsx";
 import OpinionTimeline from "../../components/dashboard/OpinionTimeline.jsx";
+import { PdfUploadCard } from "../../components/dashboard/PdfUploadCard.jsx";
 
 function DashboardHome() {
   const [selectedPolicy, setSelectedPolicy] = useState("digital");
@@ -39,7 +40,6 @@ function DashboardHome() {
       // Mark simulation as completed THIS session
       setHasRun(true);
       window.sessionStorage.setItem("dashboardHasRun", "true");
-
     } catch (error) {
       console.error("Simulation error:", error);
     } finally {
@@ -49,7 +49,6 @@ function DashboardHome() {
 
   // Avoid flicker while reading sessionStorage
   if (loadingInitial) return null;
-
 
   // BEFORE FIRST SIMULATION → World map background + centered selector
   if (!hasRun) {
@@ -72,11 +71,9 @@ function DashboardHome() {
     );
   }
 
-
   // AFTER FIRST SIMULATION → Full Dashboard
   return (
     <div className="relative h-full w-full overflow-auto p-6">
-
       {/* Header text */}
       <div className="mb-6 flex items-center justify-between gap-4">
         <div>
@@ -85,6 +82,11 @@ function DashboardHome() {
             Analyze public sentiment across India&apos;s states and demographics
           </p>
         </div>
+      </div>
+
+      {/* PDF Upload Card */}
+      <div className="mb-6">
+        <PdfUploadCard />
       </div>
 
       {/* Top controls */}
