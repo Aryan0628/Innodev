@@ -9,14 +9,14 @@ const corsOptions = {
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin) return callback(null, true);
-    
+
     // In development, allow localhost on any port
     if (process.env.NODE_ENV !== "production") {
       if (origin.includes("localhost") || origin.includes("127.0.0.1")) {
         return callback(null, true);
       }
     }
-    
+
     // Allow configured client URL
     const allowedOrigins = [
       process.env.CLIENT_URL || "http://localhost:5173",
@@ -25,7 +25,7 @@ const corsOptions = {
       "http://localhost:8080",
       "http://127.0.0.1:5173",
     ];
-    
+
     if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
@@ -63,6 +63,12 @@ app.use("/api/users", userRouter);
 
 import heatmapRouter from "./src/routes/heatmap.route.js";
 app.use("/api/heatmap", heatmapRouter);
+
+import dashboardRouter from "./src/routes/dashboard.route.js";
+app.use("/api/dashboard", dashboardRouter);
+
+import pdfRouter from "./src/routes/pdf.routes.js";
+app.use("/api/pdf", pdfRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
