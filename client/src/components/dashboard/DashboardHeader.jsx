@@ -1,10 +1,24 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Bell, Search, User } from "lucide-react";
+import { Bell, Search, User, LogOut } from "lucide-react";
 import { Input } from "@/components/ui/input";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useNavigate } from "react-router-dom";
 
 function DashboardHeader() {
+  const { logout } = useAuth0();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+    navigate("/");
+  };
+
   return (
     <header className="flex h-16 items-center justify-between border-b border-border bg-card px-6">
       <div className="relative w-64">
@@ -23,6 +37,16 @@ function DashboardHeader() {
 
         <Button variant="ghost" size="icon">
           <User className="h-5 w-5" />
+        </Button>
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={handleLogout}
+          className="gap-2"
+        >
+          <LogOut className="h-4 w-4" />
+          Log Out
         </Button>
       </div>
     </header>
