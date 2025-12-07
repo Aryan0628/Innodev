@@ -54,12 +54,12 @@ function DashboardHome() {
   // BEFORE FIRST SIMULATION → World map background + centered selector
   if (!hasRun) {
     return (
-      <div className="relative h-full w-full overflow-hidden flex items-center justify-center">
+      <div className="relative w-full h-full overflow-hidden flex items-center justify-center">
         {/* Background world simulation */}
         <WorldMapSimulation />
 
         {/* Centered simulation selector */}
-        <div className="relative z-10 w-full max-w-md px-4 animate-in fade-in zoom-in duration-500">
+        <div className="relative z-10 w-full max-w-md px-4 animate-in fade-in zoom-in duration-500 ">
           <PolicySelector
             selectedPolicy={selectedPolicy}
             onChangePolicy={setSelectedPolicy}

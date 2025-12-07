@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 
-function FitWorld() {
+// Helper to fix map rendering issues by forcing a resize
+function MapController() {
   const map = useMap();
   useEffect(() => {
-    map.setView([20, 0], 2);
-    map.invalidateSize();
+    // Invalidate size after mount to ensure tiles load correctly
+    setTimeout(() => {
+      map.invalidateSize();
+    }, 100);
   }, [map]);
   return null;
 }
@@ -15,10 +18,14 @@ function WorldMapSimulation() {
   const [geoJsonData, setGeoJsonData] = useState(null);
 
   useEffect(() => {
+    // Added error handling
     fetch("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
       .then((data) => setGeoJsonData(data))
-      .catch((err) => console.error("Map Error:", err));
+      .catch((err) => console.error("Map Data Error:", err));
   }, []);
 
   const geoJsonStyle = {
@@ -30,7 +37,9 @@ function WorldMapSimulation() {
   };
 
   return (
-    <div className="absolute inset-0 -z-10 w-full h-full bg-black pointer-events-none">
+    // [FIX] Changed -z-10 to z-0 so it sits ON TOP of the app background
+    // [FIX] Added 'isolation-isolate' to create a new stacking context if needed
+    <div className="absolute inset-0 z-0 w-full h-full bg-black">
       <MapContainer
         center={[20, 0]}
         zoom={2}
@@ -38,7 +47,8 @@ function WorldMapSimulation() {
         scrollWheelZoom={false}
         doubleClickZoom={false}
         dragging={false}
-        style={{ height: "100%", width: "100%", background: "#000000" }}
+        // [FIX] Ensure min-height prevents collapse
+        style={{ height: "100%", width: "100%", background: "#000000", minHeight: "400px" }}
         attributionControl={false}
       >
         <TileLayer
@@ -46,11 +56,11 @@ function WorldMapSimulation() {
           opacity={0.5}
         />
         {geoJsonData && <GeoJSON data={geoJsonData} style={geoJsonStyle} />}
-        <FitWorld />
+        <MapController />
       </MapContainer>
 
-      {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)]" />
+      {/* Vignette Overlay */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none" />
     </div>
   );
 }

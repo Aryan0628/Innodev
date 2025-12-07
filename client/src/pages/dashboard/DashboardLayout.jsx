@@ -8,7 +8,9 @@ function DashboardLayout() {
       <DashboardSidebar />
       <div className="flex-1 flex flex-col">
         <DashboardHeader />
-        <main className="flex-1 p-6 overflow-auto">
+        {/* [FIX] Added 'relative isolate' to prevent z-index conflicts */}
+        {/* [FIX] Added 'flex flex-col' so children (like the map) can use flex-1 to fill space */}
+        <main className="flex-1 p-6 overflow-auto flex flex-col relative isolate">
           <Outlet />
         </main>
       </div>
