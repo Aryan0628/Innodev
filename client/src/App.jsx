@@ -1,7 +1,6 @@
 import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
-import Navbar from "./components/Navbar.jsx";
 import LandingPage from "./pages/Landing";
 
 // Dashboard Components

@@ -11,7 +11,7 @@ function DashboardHeader() {
       logoutParams: {
         returnTo: window.location.origin,
       },
-    });
+    });å
   };
 
   return (

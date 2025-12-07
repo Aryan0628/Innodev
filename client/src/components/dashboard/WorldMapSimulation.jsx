@@ -39,7 +39,7 @@ function WorldMapSimulation() {
   return (
     // [FIX] Changed -z-10 to z-0 so it sits ON TOP of the app background
     // [FIX] Added 'isolation-isolate' to create a new stacking context if needed
-    <div className="absolute inset-0 z-0 w-full h-full bg-black">
+    <div className="absolute inset-0 z-0 w-full h-full bg-black isolation-isolate">
       <MapContainer
         center={[20, 0]}
         zoom={2}
@@ -48,12 +48,12 @@ function WorldMapSimulation() {
         doubleClickZoom={false}
         dragging={false}
         // [FIX] Ensure min-height prevents collapse
-        style={{ height: "100%", width: "100%", background: "#000000", minHeight: "400px" }}
+        style={{ height: "100%", width: "100%", background: "#000000", minHeight: "200px" }}
         attributionControl={false}
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
-          opacity={0.5}
+          opacity={0}
         />
         {geoJsonData && <GeoJSON data={geoJsonData} style={geoJsonStyle} />}
         <MapController />
