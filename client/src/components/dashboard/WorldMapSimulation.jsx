@@ -16,7 +16,6 @@ function MapController() {
 
 function WorldMapSimulation() {
   const [geoJsonData, setGeoJsonData] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Added error handling
@@ -30,11 +29,11 @@ function WorldMapSimulation() {
   }, []);
 
   const geoJsonStyle = {
-    fillColor: "#1a1a1a",
+    fillColor: "#000000",
     weight: 0.5,
     opacity: 1,
-    color: "#333333",
-    fillOpacity: 0.7,
+    color: "#ffffff",
+    fillOpacity: 0.8,
   };
 
   return (
@@ -54,7 +53,7 @@ function WorldMapSimulation() {
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
-          opacity={0.6}
+          opacity={0.5}
         />
         {geoJsonData && <GeoJSON data={geoJsonData} style={geoJsonStyle} />}
         <MapController />
