@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -20,15 +17,13 @@ const policies = [
   { id: "digital", name: "Digital India Initiative" },
 ];
 
-function PolicySelector() {
-  const [selectedPolicy, setSelectedPolicy] = useState("digital");
-  const [isSimulating, setIsSimulating] = useState(false);
-
-  const handleSimulate = () => {
-    setIsSimulating(true);
-    setTimeout(() => setIsSimulating(false), 2000);
-  };
-
+function PolicySelector({
+  selectedPolicy,
+  onChangePolicy,
+  onRun,
+  isRunning,
+  hasRun,
+}) {
   return (
     <Card className="mb-6 p-4">
       <div className="flex flex-wrap items-center gap-4">
@@ -36,7 +31,7 @@ function PolicySelector() {
           <label className="mb-2 block text-sm font-medium">
             Select Policy
           </label>
-          <Select value={selectedPolicy} onValueChange={setSelectedPolicy}>
+          <Select value={selectedPolicy} onValueChange={onChangePolicy}>
             <SelectTrigger>
               <SelectValue placeholder="Choose a policy" />
             </SelectTrigger>
@@ -52,11 +47,11 @@ function PolicySelector() {
 
         <div className="flex gap-2 pt-6">
           <Button
-            onClick={handleSimulate}
-            disabled={isSimulating}
+            onClick={onRun}
+            disabled={isRunning}
             className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
           >
-            {isSimulating ? (
+            {isRunning ? (
               <>
                 <RefreshCw className="h-4 w-4 animate-spin" />
                 Simulating...
@@ -64,7 +59,7 @@ function PolicySelector() {
             ) : (
               <>
                 <Play className="h-4 w-4" />
-                Run Simulation
+                {hasRun ? "Run Another Simulation" : "Run Simulation"}
               </>
             )}
           </Button>
